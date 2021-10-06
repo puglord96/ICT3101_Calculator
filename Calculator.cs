@@ -28,6 +28,7 @@ namespace ICT3101_Calculator
                     result = Divide(num1, num2);
                     break;
                 case "f":
+                    //Ask user for non-zero input
                     result = Factorial(num1);
                     break;
 
