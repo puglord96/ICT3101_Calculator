@@ -144,7 +144,7 @@ namespace ICT3101_Calculator
 
         public double AreaOfCircle(double radius)
         {
-            double pi = 3.14;
+            double pi = 3.142;
 
             if (radius < 0 || radius == 0)
             {
