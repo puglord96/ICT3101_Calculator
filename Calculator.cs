@@ -257,7 +257,7 @@ namespace ICT3101_Calculator
             {
                 result = Convert.ToDouble(magicStrings[choice]);
             }
-            result = (result > 0) ? (2 * result) : (-2 * result);
+            result = (result > 0) ? (2 * result) : (-2.0 * result);
             return result;
         }
 
