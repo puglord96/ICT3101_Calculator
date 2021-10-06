@@ -1,10 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ICT3101_Calculator
 {
+
+    public class FileReader
+    {
+        public string[] Read(string path)
+        {
+            return File.ReadAllLines(path);
+        }
+    }
+
     public class Calculator
     {
         public Calculator() { }
@@ -144,7 +154,7 @@ namespace ICT3101_Calculator
 
         public double AreaOfCircle(double radius)
         {
-            double pi = 3.142;
+            double pi = 3.14;
 
             if (radius < 0 || radius == 0)
             {
@@ -234,7 +244,24 @@ namespace ICT3101_Calculator
         {
             return decimal.Round((decimal)Multiply(initialFailure, Math.Exp(Multiply(-decayParam, avgExptFailure))),2);
         }
-        
+
+        public double GenMagicNum(double input)
+        {
+            double result = 0;
+            int choice = Convert.ToInt16(input);
+            //Dependency------------------------------
+            FileReader getTheMagic = new FileReader();
+            //----------------------------------------
+            string[] magicStrings = getTheMagic.Read("MagicNumbers.txt");
+            if ((choice >= 0) && (choice < magicStrings.Length))
+            {
+                result = Convert.ToDouble(magicStrings[choice]);
+            }
+            result = (result > 0) ? (2 * result) : (-2 * result);
+            return result;
+        }
+
+
 
     }
 }
