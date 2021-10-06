@@ -208,7 +208,7 @@ namespace ICT3101_Calculator
             }
             else if (num1 == 99.99999f)
             {
-                return 7.00;
+                return 7;
             }
             else
             {
