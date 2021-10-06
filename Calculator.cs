@@ -7,13 +7,7 @@ using System.Text.RegularExpressions;
 namespace ICT3101_Calculator
 {
 
-    public class FileReader
-    {
-        public string[] Read(string path)
-        {
-            return File.ReadAllLines(path);
-        }
-    }
+ 
 
     public class Calculator
     {
@@ -163,6 +157,11 @@ namespace ICT3101_Calculator
             return Multiply(pi, Multiply(radius, radius));
         }
 
+        public double GenMagicNum(double input, object filereader)
+        {
+            throw new NotImplementedException();
+        }
+
 
 
         #region UnknownFunctions Lab 1
@@ -245,14 +244,12 @@ namespace ICT3101_Calculator
             return decimal.Round((decimal)Multiply(initialFailure, Math.Exp(Multiply(-decayParam, avgExptFailure))),2);
         }
 
-        public double GenMagicNum(double input)
+        public double GenMagicNum(double input, IFileReader filereader)
         {
             double result = 0;
             int choice = Convert.ToInt16(input);
-            //Dependency------------------------------
-            FileReader getTheMagic = new FileReader();
-            //----------------------------------------
-            string[] magicStrings = getTheMagic.Read("MagicNumbers.txt");
+
+            string[] magicStrings = filereader.Read("MagicNumbers.txt");
             if ((choice >= 0) && (choice < magicStrings.Length))
             {
                 result = Convert.ToDouble(magicStrings[choice]);
